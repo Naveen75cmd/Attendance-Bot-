@@ -4,11 +4,13 @@ import os
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from chatbot import get_chatbot_agent
+from utils import require_login
 
 st.set_page_config(page_title="AI Assistant", page_icon="💬")
+require_login()
 
-st.title("💬 Attendance Assistant")
-st.caption("Ask questions about the attendance data (e.g., 'Who was absent yesterday?', 'How many students in Section A?').")
+st.title("💬 Attendance Assistant (Groq)")
+st.caption("Ask questions like 'Who was absent on Jan 31st?' or 'Mark 59 as Present'.")
 
 if "messages" not in st.session_state:
     st.session_state.messages = []

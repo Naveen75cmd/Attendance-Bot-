@@ -6,16 +6,19 @@ st.set_page_config(
     layout="wide"
 )
 
+from utils import require_login
+require_login()
+
 st.title("🤖 Attendance Automation System")
 
 st.markdown("""
 ### Welcome!
-This application automates attendance management using Gemini AI.
+This application automates attendance management using **OCR and Pattern Matching**.
 
 **Features:**
-- **Upload Attendance**: Paste unstructured attendance text from messaging apps.
+- **Upload Attendance**: Upload text or images. (OCR by OCR Space, Parsing by Regex).
 - **View Records**: Check and filter attendance history.
-- **AI Assistant**: Ask questions about attendance in natural language.
+- **Search Records**: Search for students or specific dates.
 
 👈 **Select a page from the sidebar to get started.**
 
@@ -29,7 +32,7 @@ if "supabase" in st.secrets and "url" in st.secrets["supabase"]:
 else:
     st.error("❌ Supabase secrets missing")
 
-if "google" in st.secrets and "api_key" in st.secrets["google"]:
-    st.success("✅ Gemini AI configured")
+if "ocr_space" in st.secrets and "api_key" in st.secrets["ocr_space"]:
+    st.success("✅ OCR Space configured")
 else:
-    st.error("❌ Gemini API Key missing")
+    st.error("❌ OCR Space API Key missing")
