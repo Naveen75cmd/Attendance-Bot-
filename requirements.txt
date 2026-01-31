@@ -1,0 +1,10 @@
+streamlit
+supabase
+google-generativeai
+langchain
+langchain-google-genai
+langchain-community
+pandas
+python-dotenv
+sqlalchemy
+psycopg2-binary
