@@ -56,7 +56,7 @@ with tab1:
         
         if data:
             df = pd.DataFrame(data)
-            st.dataframe(df, use_container_width=True)
+            st.dataframe(df, width="stretch")
             
             # Download
             csv = df.to_csv(index=False).encode('utf-8')

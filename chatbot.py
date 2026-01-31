@@ -2,8 +2,7 @@ import streamlit as st
 from langchain_groq import ChatGroq
 from langchain_community.utilities import SQLDatabase
 from langchain_community.agent_toolkits import create_sql_agent
-from langchain.agents import AgentType
-import os
+# from langchain.agents import AgentType # Removed to avoid ImportError
 
 def get_chatbot_agent():
     """
@@ -42,7 +41,7 @@ def get_chatbot_agent():
     agent = create_sql_agent(
         llm=llm,
         db=db,
-        agent_type=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
+        agent_type="zero-shot-react-description",
         verbose=True,
         handle_parsing_errors=True
     )
